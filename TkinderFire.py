@@ -1,23 +1,22 @@
 import tkinter as tk
+from random import *
 
-win = tk.Tk()
-ROW = 10
-COLUMNS = 7
+window = tk.Tk()
+window.title("FifeAndDance")
+
+ROW = 7
+COLUMS = 3
 
 buttons = []
 for i in range(ROW):
     temp = []
-    for j in range(COLUMNS):
-        btn = tk.Button(win, width=3, font='Calibri 15 bold')
+    for j in range(COLUMS):
+        btn = tk.Button(window)
         temp.append(btn)
     buttons.append(temp)
 
-for row_btn in buttons:
+for row_btn in(buttons):
     print(row_btn)
 
-for i in range(ROW):
-    for j in range(COLUMNS):
-        btn = buttons[i][j]
-        btn.grid(row=i, columns=j)
-    
-win.mainloop()
+
+window.mainloop()
