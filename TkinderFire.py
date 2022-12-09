@@ -1,22 +1,33 @@
 import tkinter as tk
 from random import *
+class FifeAndDance():
+    
+    window = tk.Tk()
+    window.title("FifeAndDance")
+    ROW = 10
+    COLUMS = 10
 
-window = tk.Tk()
-window.title("FifeAndDance")
+    def __unit__(self):
+        self.buttons = []
+        for i in range(FifeAndDance.ROW):
+            temp = []
+            for j in range(FifeAndDance.COLUMS):
+                btn = tk.Button(FifeAndDance.window, width=3, font='Calibri 15 bold')
+                temp.append(btn)
+        self.buttons.append(temp)
 
-ROW = 7
-COLUMS = 3
+    def create_widgets(self):
+        for i in range(FifeAndDance.ROW):
+            for j in range(FifeAndDance.COLUMS):
+                btn = self.buttons[i][j]
+                btn.grid(row=i, column=j)
 
-buttons = []
-for i in range(ROW):
-    temp = []
-    for j in range(COLUMS):
-        btn = tk.Button(window)
-        temp.append(btn)
-    buttons.append(temp)
+    def start(self):
+        FifeAndDance.window.mainloop()
 
-for row_btn in(buttons):
+game = FifeAndDance()
+game.create_widgets()
+game.start()
+
+for row_btn in (game.buttons):
     print(row_btn)
-
-
-window.mainloop()
