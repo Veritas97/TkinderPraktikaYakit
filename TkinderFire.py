@@ -1,18 +1,31 @@
 import tkinter as tk
 from random import *
 
+
+class MyButton(tk.Button):
+
+    def __init__(self, master, x, y, *args, **kwargs):
+        super(MyButton, self).__init__(master, width=3, font='Calibri 15 bold', *args, **kwargs)
+        self.x = x
+        self.y = y
+        self.is_earth = False
+
+    def __repr__(self):
+        return f"EmptuBtn: {self.x}|{self.y}"
 class Fife:
-    
+
     window = tk.Tk()
-    ROW = 10
+    window.title("Огонь бежит")
+    ROW = 7
     COLUMS = 10
-    
+
     def __init__(self):
         self.buttons = []
         for i in range(Fife.ROW):
             temp = []
             for j in range(Fife.COLUMS):
-                btn = tk.Button(Fife.window, width=3, font='Calibri 15 bold')
+                btn = MyButton(Fife.window, x = i, y = j)
+
                 temp.append(btn)
             self.buttons.append(temp)
 
